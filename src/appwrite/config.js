@@ -143,6 +143,12 @@ getFilePreview(fileId) {
     );
 }
 
+    // Construct a public URL for a file stored in Appwrite Storage.
+    // This returns a string that can be used directly in an <img src="..." />
+    getFileUrl(fileId) {
+        const base = String(conf.appwriteUrl).replace(/\/$/, '');
+        return `${base}/storage/buckets/${conf.appwriteBucketId}/files/${fileId}/view?project=${conf.appwriteProjectId}`;
+    }
 }
 
 
