@@ -3,9 +3,10 @@ import appwriteService from "../appwrite/config"
 import {Link} from 'react-router-dom'
 
 function PostCard({$id, title, featuredImage}) {
-    const imageUrl = featuredImage
-        ? appwriteService.getFileUrl(featuredImage)
+    const imageUrl = featuredImage 
+        ? appwriteService.getFilePreview(featuredImage).toString()
         : null
+    
   return (
     <Link to={`/post/${$id}`}>
         <div className='w-full bg-gray-100 rounded-xl p-4'>
